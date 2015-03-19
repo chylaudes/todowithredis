@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Manager</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src ="/javascripts/index.js"></script>
+</head>
+<body>
+<h1>Add your students!</h1>
+<form action="/create" method="post">
+  <div>
+    <label for="student">Student name:</label>
+    <input type="text" name="student"  id="student" autofocus required>
+  </div>
+<div class="button">
+    <button type="submit">Add a Student!</button>
+</div><%students.forEach(function(student){ %>
+  <li><%=student %> <br><form action="/remove/<%=student%>/?_method=DELETE" method="POST"><input type="submit" value="X">
+  </li>
+<% }) %>
+</body>
+</html>
